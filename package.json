@@ -1,0 +1,36 @@
+{
+  "name": "list-product",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "serve": "webpack serve --env mode=development port=3010",
+    "build:prod": "webpack --env mode=production",
+    "build:dev": "webpack --env mode=development",
+    "lint:ts": "eslint \"**/*.{ts,vue}\"",
+    "lint:ts:fix": "eslint \"**/*.{ts,vue}\" --fix"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.8.10",
+    "@types/webpack": "^5.28.4",
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "css-loader": "^6.8.1",
+    "eslint": "^8.52.0",
+    "eslint-plugin-vue": "^9.18.1",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "sass-loader": "^13.3.2",
+    "ts-loader": "^9.5.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2",
+    "vue-loader": "^17.3.1",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "dependencies": {
+    "vue": "^3.3.7"
+  }
+}

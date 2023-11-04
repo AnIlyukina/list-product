@@ -21,16 +21,20 @@
     "eslint-plugin-vue": "^9.18.1",
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
+    "sass": "^1.69.5",
     "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
     "ts-loader": "^9.5.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
     "vue-loader": "^17.3.1",
+    "vue-svg-loader": "^0.17.0-beta.2",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "axios": "^1.6.0",
     "vue": "^3.3.7"
   }
 }

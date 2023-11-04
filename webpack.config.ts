@@ -44,19 +44,20 @@ export default  (env: BuildEnv): configWebpack => {
                     exclude: /node_modules/,
                 },
                 {
-                    test: /\.vue\.(s?[ac]ss)$/,
+                    test: /\.(sass|scss)$/,
                     use: [
-                        isDev ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                // enable CSS Modules
-                                modules: true,
-                            },
-                        },
+                        'style-loader',
+                        'css-loader',
                         'sass-loader',
-                    ]
-                }
+                    ],
+                },
+                {
+                    test: /\.svg$/,
+                    use: [
+                        'vue-loader',
+                        'vue-svg-loader',
+                    ],
+                },
             ]
         },
         plugins: [

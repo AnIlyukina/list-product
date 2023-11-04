@@ -58,6 +58,7 @@ const { product } = defineProps<Props>()
 			}
 
 			&_description {
+				font-size: 0.8em;
 				margin-top: 5px;
 				-webkit-line-clamp: 3;
 				line-clamp: 3;

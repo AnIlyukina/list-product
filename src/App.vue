@@ -17,7 +17,7 @@ import List from "./components/ListProduct.vue";
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	min-height: calc(100vh - 120px);
+	min-height: calc(100vh - var(--height-navbar));
 	flex-direction: column;
 }
 </style>

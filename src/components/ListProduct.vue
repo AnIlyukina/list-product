@@ -60,7 +60,10 @@ onUnmounted(() => {
 </script>
 
 <template>
-	<ul class="list-product">
+	<ul
+		v-if="productList.length"
+		class="list-product"
+	>
 		<li
 			v-for="(product, index) in productList"
 			:key="index"
@@ -88,12 +91,9 @@ onUnmounted(() => {
 		list-style: none;
 		padding: 20px;
 		border-radius: 10px;
-		background-color: white;
-		color: #373737;
+		background-color: var(--bg-color-card);
+		color: var(--primary-color);
 		border: 1px solid rgba(0, 0, 0, 0.1)
-		//-webkit-box-shadow: 5px 5px 1px 5px #3688ff1c;
-		//-moz-box-shadow: 5px 5px 1px 5px #3688ff1c;
-		//box-shadow: 5px 5px 1px 5px #3688ff1c;
 	}
 }
 </style>

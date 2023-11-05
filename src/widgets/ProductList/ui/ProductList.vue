@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import {reactive, ref, onMounted, onUnmounted, watchEffect} from 'vue';
 import axios from 'axios';
-import ItemProduct from "./ItemProduct.vue";
-import {Product} from "../types/types";
-import Loader from "./Loader.vue";
+import ItemProduct from "./ProductItem.vue";
+import {Product} from "../model/product";
+import Loader from "src/shared/ui/Loader/Loader.vue";
 
 let productList: Array<Product> = reactive([]);
 let currentPage = ref(1);
@@ -77,23 +77,28 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 .list-product {
-	padding: var(--padding-container-l);
+	padding: var(--padding-container);
 	display: grid;
 	border-radius: 5px;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 	grid-gap: 30px;
 
 	&__wrapper-item {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		cursor: pointer;
 		list-style: none;
-		padding: 20px;
-		border-radius: 10px;
-		background-color: var(--bg-color-card);
-		color: var(--primary-color);
-		border: 1px solid rgba(0, 0, 0, 0.1)
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.list-product {
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 15px;
+	}
+}
+
+@media screen and (max-width: 530px) {
+	.list-product {
+		grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+		gap: 10px;
 	}
 }
 </style>

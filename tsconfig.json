@@ -5,9 +5,14 @@
     "strict": true,
     "jsx": "preserve",
     "noImplicitAny": false,
-    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./*" ],
+    },
   },
   "ts-node": {
     "compilerOptions": {

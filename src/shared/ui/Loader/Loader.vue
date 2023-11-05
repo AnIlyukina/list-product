@@ -17,7 +17,7 @@
 
 .lds-ellipsis div {
 	position: absolute;
-	top: 33px;
+	top: 10px;
 	width: 13px;
 	height: 13px;
 	border-radius: 50%;
@@ -75,4 +75,13 @@
 	}
 }
 
+@media screen and (max-width: 530px) {
+	.lds-ellipsis {
+		height: 60px;
+	}
+	.lds-ellipsis div {
+		width: 10px;
+		height: 10px;
+	}
+}
 </style>

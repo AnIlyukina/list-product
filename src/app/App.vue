@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import Header from "./components/NavBar.vue";
-import List from "./components/ListProduct.vue";
+import Navbar from "src/widgets/Navbar/ui/NavBar.vue";
+import List from "src/widgets/ProductList/ui/ProductList.vue";
 
 </script>
 
 <template>
-	<Header/>
+	<Navbar/>
 	<main class="main-content">
 		<List/>
 	</main>
@@ -13,7 +13,7 @@ import List from "./components/ListProduct.vue";
 
 <style lang="scss" scoped>
 .main-content {
-	margin-top: 120px;
+	margin-top: var(--height-navbar);
 	display: flex;
 	align-items: center;
 	justify-content: center;

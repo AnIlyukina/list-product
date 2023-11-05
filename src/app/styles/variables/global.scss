@@ -1,0 +1,32 @@
+:root {
+    --font-family-main: 'Source Sans Pro', serif;
+    --font-size-m: 16px;
+    --font-m: var(--font-size-m) var(--font-family-main);
+
+
+    // цвета
+    --bg-color-header: #ffffff;
+    --bg-color: #ffffff;
+    --bg-color-card: #ffffff;
+    --primary-color: rgba(51, 51, 51);
+
+    // контейнеры
+    --padding-container: 30px 30px 20px;
+
+
+    //nav-bar
+    --height-navbar: 120px;
+    --height-navbar-on-scroll: 80px;
+
+    @media screen and (max-width: 768px){
+        --height-navbar: 80px;
+        --padding-container: 20px;
+        --height-navbar-on-scroll: 60px;
+    }
+
+    @media screen and (max-width: 530px){
+        --padding-container: 10px;
+        --height-navbar-on-scroll: 50px;
+    }
+
+}

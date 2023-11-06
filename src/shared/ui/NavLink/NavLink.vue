@@ -94,12 +94,12 @@ const iconLoader = getComponentSvg(link.iconName);
 
 @media screen and (max-width: 530px){
 	.nav-link {
-		font-size: .9em;
+		font-size: 1em;
 		padding: 0;
 
 		&.icon {
-			font-size: 1.2em;
 			width: 70px;
+			padding: 3px 0;
 		}
 
 		span {
@@ -108,7 +108,7 @@ const iconLoader = getComponentSvg(link.iconName);
 
 		&__svg-icon {
 			width: 18px;
-			height: 18px;
+			height:18px;
 		}
 	}
 }

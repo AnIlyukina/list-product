@@ -9,6 +9,7 @@
 
 ### Eslint
 -- `npm run lint:ts` - проверка кода
+
 -- `npm run lint:ts:fix` - автоматически исправление кода
 
 ---

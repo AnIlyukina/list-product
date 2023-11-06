@@ -22,7 +22,7 @@ export default  (env: BuildEnv): configWebpack => {
         entry: path.resolve(__dirname, 'src', 'index.ts'),
         output: {
             filename: "[name]-[contenthash].js",
-            path: path.resolve(__dirname, 'build'),
+            path: path.resolve(__dirname, 'dist'),
             clean: true,
         },
         resolve: {

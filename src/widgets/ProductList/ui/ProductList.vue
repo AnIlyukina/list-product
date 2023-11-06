@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import {reactive, ref, onMounted, onUnmounted, watchEffect} from 'vue';
 import axios from 'axios';
-import ItemProduct from "./ProductItem.vue";
-import {Product} from "../model/product";
+import ProductItem from "./ProductItem.vue";
 import Loader from "src/shared/ui/AppLoader/AppLoader.vue";
+import {Product} from "../model/product";
+
 
 let productList: Array<Product> = reactive([]);
 let currentPage = ref(1);
@@ -29,7 +30,7 @@ const getPhotosWithDelay = () => {
 	isLoading.value = true;
 	setTimeout(async () => {
 		await getPhotos()
-	}, 2000)
+	}, 1000)
 	isLoading.value = false;
 }
 
@@ -68,7 +69,7 @@ onUnmounted(() => {
 			:key="index"
 			class="list-product__wrapper-item"
 		>
-			<item-product :product="product"/>
+			<ProductItem :product="product"/>
 		</li>
 	</ul>
 	<Loader/>
@@ -76,6 +77,7 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 .list-product {
+	width: 100%;
 	padding: var(--padding-container);
 	display: grid;
 	border-radius: 5px;

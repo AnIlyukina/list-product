@@ -96,9 +96,14 @@ const iconLoader = getComponentSvg(link.iconName);
 	.nav-link {
 		font-size: 1em;
 		padding: 0;
+		width: 77px;
+
+		&.icon &__title{
+			transform: translateY(0);
+			opacity: 0;
+		}
 
 		&.icon {
-			width: 70px;
 			padding: 3px 0;
 		}
 

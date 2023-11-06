@@ -17,7 +17,6 @@ interface configWebpack extends webpack.Configuration{
 }
 
 export default  (env: BuildEnv): configWebpack => {
-    const isDev = env.mode === 'development'
     return {
         mode: env.mode,
         entry: path.resolve(__dirname, 'src', 'index.ts'),

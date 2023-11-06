@@ -3,7 +3,7 @@ import {reactive, ref, onMounted, onUnmounted, watchEffect} from 'vue';
 import axios from 'axios';
 import ItemProduct from "./ProductItem.vue";
 import {Product} from "../model/product";
-import Loader from "src/shared/ui/Loader/Loader.vue";
+import Loader from "src/shared/ui/AppLoader/AppLoader.vue";
 
 let productList: Array<Product> = reactive([]);
 let currentPage = ref(1);
@@ -15,10 +15,9 @@ onMounted(() => {
 	document.addEventListener('scroll', scrollHandler)
 })
 
-const scrollHandler = (e: Event) => {
+const scrollHandler = () => {
 	if (
-		//@ts-ignore
-		e.target.documentElement.scrollHeight - (e.target?.documentElement.scrollTop + window.innerHeight) < 100
+		document.documentElement.scrollHeight - (document.documentElement.scrollTop + window.innerHeight) < 100
 		&& productList.length < totalCount.value
 	) {
 		isFetching.value = true

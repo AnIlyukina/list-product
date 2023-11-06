@@ -1,28 +1,24 @@
 <script setup lang="ts">
 
 import {NavbarItemType} from "src/widgets/Navbar/model/links";
-import {computed, defineAsyncComponent} from "vue";
+import {getComponentSvg} from "src/shared/lib/getComponentSvg";
 interface Props {
-	link: NavbarItemType,
-	isActive: boolean
-
+	link: NavbarItemType;
+	isActive: boolean;
 }
 
-const { link, isActive } = defineProps<Props>()
+const { link, isActive } = defineProps<Props>();
 
-const iconLoader = computed(() => {
-	return defineAsyncComponent(() => import(`src/app/styles/assets/icons/${link.iconName}.svg`))
-})
-
+const iconLoader = getComponentSvg(link.iconName);
 </script>
 
 <template>
-	<a :href="link.path"
-	   :class="[isActive ? 'icon' : '', 'nav-link']"
-
+	<a
+		:href="link.path"
+		:class="[isActive ? 'icon' : '', 'nav-link']"
 	>
 		<span class="nav-link__title">{{ link.text }}</span>
-		<span class="nav-link__svg" v-if="iconLoader">
+		<span class="nav-link__svg">
 			<component
 				:is="iconLoader"
 				class="nav-link__svg-icon"
@@ -32,14 +28,13 @@ const iconLoader = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-
 .nav-link {
 	font-size: 1.2em;
 	position: relative;
 	color: var(--primary-color);
 	padding: 5px 30px;
 	text-decoration: none;
-	font-weight: bold;
+	font-weight: 700;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -57,7 +52,7 @@ const iconLoader = computed(() => {
 		transition: .8s;
 	}
 
-	:hover::after {
+	&:hover::after {
 		transform: translateY(14px);
 	}
 
@@ -99,7 +94,7 @@ const iconLoader = computed(() => {
 
 @media screen and (max-width: 530px){
 	.nav-link {
-		font-size: .8em;
+		font-size: .9em;
 		padding: 0;
 
 		&.icon {
@@ -112,6 +107,4 @@ const iconLoader = computed(() => {
 		}
 	}
 }
-
-
 </style>

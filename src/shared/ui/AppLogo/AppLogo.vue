@@ -22,7 +22,7 @@ const { isActive } = defineProps<Props>()
 .app-logo {
 	position: relative;
 	font-size: 2em;
-	font-weight: bold;
+	font-weight: 700;
 	text-decoration: none;
 	padding: 5px 0;
 	color: var(--primary-color);

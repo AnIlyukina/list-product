@@ -16,8 +16,12 @@ onMounted(() => {
 
 const toggleAnimation = () => {
 	if (navbar.value) {
-		let scrollTop = window.pageYOffset;
-		document.documentElement.scrollTop;
+		let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+		// для корректной работы в safari
+		if (scrollTop < 0) {
+			scrollTop = 0;
+		}
 		isActive.value = scrollTop > lastScrollTop;
 		lastScrollTop = scrollTop;
 	}
@@ -29,11 +33,16 @@ onUnmounted(() => {
 </script>
 
 <template>
-	<nav class="navbar" :class="[isActive ? 'icon' : 'navbar']" ref="navbar">
+	<nav :class="[isActive ? 'icon' : '', 'navbar']" ref="navbar">
 		<app-logo :isActive="isActive"/>
 
 		<ul class="navbar__list">
-			<li v-for="(link, index) in NavbarLinksList" :style="{'--i': index}" class="navbar__item">
+			<li
+				v-for="(link, index) in NavbarLinksList"
+				:style="{'--i': index}"
+				:key="index"
+				class="navbar__item"
+			>
 				<nav-link :link="link" :isActive="isActive"/>
 			</li>
 		</ul>

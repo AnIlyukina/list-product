@@ -1,13 +1,23 @@
 <script setup lang="ts">
 import {Product} from "../model/product";
-import CartIcon from "src/app/styles/assets/icons/cart.svg";
-import FavoriteIcon from "src/app/styles/assets/icons/favorite.svg";
+import AppButton from "src/shared/ui/AppButton/AppButton.vue";
+import {ref} from "vue";
 
 interface Props {
 	product: Product
 }
 
-const { product } = defineProps<Props>()
+const isFavorite = ref(false);
+const isInCart = ref(false);
+const { product } = defineProps<Props>();
+
+const toggleFavorite = () => {
+	isFavorite.value = !isFavorite.value;
+}
+
+const toggleInCart = () => {
+	isInCart.value = !isInCart.value;
+}
 
 </script>
 
@@ -28,24 +38,28 @@ const { product } = defineProps<Props>()
 			</div>
 
 			<div class="item__buttons">
-				<button class="item__button">
-					<FavoriteIcon class="item__button-icon"/>
-				</button>
-				<button class="item__button">
-					<CartIcon class="item__button-icon"/>
-				</button>
+				<app-button
+					:icon-name="'favorite'"
+					:is-active="isFavorite"
+					@click="toggleFavorite"
+				/>
+				<app-button
+					:icon-name="'cart'"
+					:is-active="isInCart"
+					@click="toggleInCart"
+				/>
 			</div>
 		</div>
 	</div>
 </template>
 
 <style lang="scss" scoped>
-
 .item {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	cursor: pointer;
+	height: 100%;
 	padding: 20px;
 	border-radius: 10px;
 	background-color: var(--bg-color-card);
@@ -69,6 +83,7 @@ const { product } = defineProps<Props>()
 
 		&_type {
 			&_title {
+				font-family: var(--font-family-secondary);
 				font-weight: 600;
 				margin-top: 10px;
 				-webkit-line-clamp: 2;
@@ -77,8 +92,8 @@ const { product } = defineProps<Props>()
 
 			&_description {
 				text-align: justify;
-				font-size: 0.8em;
-				margin-top: 5px;
+				font-size: .9em;
+				margin-top: 10px;
 				-webkit-line-clamp: 3;
 				line-clamp: 3;
 			}
@@ -90,24 +105,18 @@ const { product } = defineProps<Props>()
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		gap: 10px;
+	}
+
+	&__buttons {
+		display: flex;
+		gap: 10px;
 	}
 
 	&__price {
 		font-weight: 600;
 		font-size: 1.5em;
-	}
-
-	&__button-icon {
-		width: 25px;
-		height: 25px;
-	}
-
-	&__button {
-		cursor: pointer;
-		margin-left: 10px;
-		padding: 5px 10px;
-		background-color: transparent;
-		border: none;
+		font-family: var(--font-family-secondary);
 	}
 }
 
@@ -121,14 +130,20 @@ const { product } = defineProps<Props>()
 			font-size: 1.2em;
 		}
 
-		&__button-icon {
-			width: 20px;
-			height: 20px;
+		&__text {
+			&_type {
+				&_description {
+					font-size: .8em;
+				}
+			}
 		}
 
-		&__button {
-			margin-left: 5px;
-			padding: 5px 5px;
+		&__buy-block {
+			gap: 5px;
+		}
+
+		&__buttons {
+			gap: 5px;
 		}
 	}
 }
@@ -147,6 +162,11 @@ const { product } = defineProps<Props>()
 
 		&__text {
 			&_type {
+				&_title {
+					font-size: .9em;
+				}
+
+
 				&_description {
 					-webkit-line-clamp: 2;
 					line-clamp: 2;
@@ -155,5 +175,4 @@ const { product } = defineProps<Props>()
 		}
 	}
 }
-
 </style>

@@ -34,7 +34,7 @@ onUnmounted(() => {
 
 <template>
 	<nav :class="[isActive ? 'icon' : '', 'navbar']" ref="navbar">
-		<app-logo :isActive="isActive"/>
+		<AppLogo :isActive="isActive"/>
 
 		<ul class="navbar__list">
 			<li
@@ -43,7 +43,7 @@ onUnmounted(() => {
 				:key="index"
 				class="navbar__item"
 			>
-				<nav-link :link="link" :isActive="isActive"/>
+				<NavLink :link="link" :isActive="isActive"/>
 			</li>
 		</ul>
 	</nav>

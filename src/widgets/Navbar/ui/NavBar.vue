@@ -62,7 +62,7 @@ onUnmounted(() => {
 	justify-content: space-between;
 	align-items: center;
 	z-index: 2;
-	border-bottom: 1px solid var(--primary-color);
+	border-bottom: 1px solid var(--primary-color-lite);
 
 	&.icon {
 		height: var(--height-navbar-on-scroll);

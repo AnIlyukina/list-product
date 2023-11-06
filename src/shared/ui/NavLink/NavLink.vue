@@ -99,11 +99,16 @@ const iconLoader = getComponentSvg(link.iconName);
 
 		&.icon {
 			font-size: 1.2em;
+			width: 70px;
+		}
+
+		span {
+			transition-delay: calc(.02s * var(--i));
 		}
 
 		&__svg-icon {
-			width: 20px;
-			height: 20px;
+			width: 18px;
+			height: 18px;
 		}
 	}
 }
